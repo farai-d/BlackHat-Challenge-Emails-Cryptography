@@ -9,6 +9,12 @@ Farai Denhere – MS Cybersecurity
 
 ---
 
+⬅️ **[Back to Main Repository](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)**
+
+[![Back to Main](https://img.shields.io/badge/Back%20to-Main%20Repository-blue)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)
+
+---
+
 ## 📌 Executive Summary
 
 Challenge 3 involved decrypting a long ciphertext suspected to be encrypted using a polyalphabetic cipher.
