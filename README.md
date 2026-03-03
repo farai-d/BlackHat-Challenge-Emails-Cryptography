@@ -23,7 +23,6 @@ The correct key matrix was recovered and full plaintext restored.
 ## 🔎 Initial Observations
 
 - Ciphertext length: **598 characters**
-- Uppercase alphabet only
 - No punctuation or spacing
 - Even length (suggesting digraph encryption)
 - No visible repeating periodic key structure
@@ -123,6 +122,7 @@ Only globally coherent outputs were accepted.
 ## 🏆 Successful Key Recovery
 
 Recovered Key Matrix:
+
 [[17 11]
 [17 8]]
 
