@@ -1,90 +1,273 @@
+# 🔐 Challenge 2 – Unresolved Cipher Investigation
 
-Each challenge folder contains:
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Status](https://img.shields.io/badge/Status-Unresolved-orange)
+![Focus](https://img.shields.io/badge/Focus-Cryptanalysis-red)
 
-- `ciphertext.txt`
-- `decrypted.txt`
-- `solver.py`
-- `analysis.md`
-- Supporting scripts (frequency, IC, scoring, brute-force)
-
----
-
-## 🧠 Cryptographic Methods Investigated
-
-Throughout the project, the following cipher types were tested:
-
-- Hill Cipher (2x2 matrix mod 26)
-- Vigenère Cipher
-- Columnar Transposition
-- Double Columnar Transposition
-- Brute-force permutation search
-- Frequency Analysis
-- Index of Coincidence (IC)
-- English scoring heuristics
-- Key space reduction via mathematical constraints
-
-Each cipher was either:
-- Successfully decrypted, or
-- Systematically ruled out using statistical evidence
+**BlackHat Challenge Series**  
+Farai Denhere – MS Cybersecurity  
 
 ---
 
-## 🔍 Methodology
+## 📌 Executive Summary
 
-My approach followed a structured cryptanalytic workflow:
+Challenge 2 presented a ciphertext that resisted full decryption despite systematic statistical analysis, cipher classification attempts, and multiple brute-force strategies.
 
-1. Initial statistical analysis (letter frequency, IC)
-2. Cipher-type hypothesis testing
-3. Key length estimation (when applicable)
-4. Brute-force or constrained key search
-5. English scoring validation
-6. Mathematical proof of correctness
-7. Plaintext verification
+Although a definitive plaintext was not recovered, extensive cryptanalytic investigation was conducted, and multiple cipher hypotheses were tested and eliminated.
 
-All brute-force operations were optimized by reducing the key space using cipher-specific constraints (e.g., determinant invertibility for Hill cipher).
+This documentation outlines the full investigative process.
 
 ---
 
-## 🛠 Tools & Technologies Used
+## 🔎 Initial Observations
 
-- Python 3
-- NumPy (matrix operations)
-- Custom English frequency scoring functions
-- Modular arithmetic operations (mod 26)
-- Permutation generation (itertools)
-- Automated plaintext scoring
+- Ciphertext length: Large
+- All lowercase alphabetic characters
+- No spaces or punctuation
+- No immediate digraph patterns
+- No clear periodic repetition
 
-All scripts were written from scratch specifically for this project.
-
----
-
-## 📊 Key Learning Outcomes
-
-- Understanding practical key space explosion
-- Importance of mathematical constraints in cryptanalysis
-- Detecting false positives in brute-force results
-- Implementing automated English scoring
-- Applying modular inverse calculations correctly
-- Recognizing cipher fingerprints through IC and frequency patterns
-
-This project strengthened both my offensive security mindset and my mathematical cryptography foundation.
+The structure did not immediately resemble Hill or simple substitution.
 
 ---
 
-## 🚀 Professional Relevance
+## 📊 Letter Frequency Analysis
 
-This repository demonstrates:
+The following frequency distribution was generated from the ciphertext.
 
-- Applied cryptanalysis
-- Automated brute-force tooling
-- Statistical validation techniques
-- Secure coding practices
-- Structured investigative methodology
+<img width="908" height="756" alt="image" src="https://github.com/user-attachments/assets/74ce1f4f-e381-49f0-856d-484ca144df40" />
 
 
 ---
 
-## 📌 Author
+### 🔎 Observations from Graph
+
+From the frequency chart:
+
+- Letters **D, N, and W** show unusually high frequencies.
+- Letter **E**, which is normally dominant in English (~12–13%), is not the highest.
+- Letters such as **Q and X** remain very low.
+- Distribution is uneven but does not match a simple Caesar shift profile.
+
+---
+
+### 🧠 Interpretation
+
+This pattern suggests:
+
+1. The cipher is **not a simple substitution cipher**, because English frequency alignment is not preserved.
+2. It is **not random noise**, because the distribution is structured.
+3. The ciphertext may involve:
+   - Polyalphabetic encryption
+   - Multi-layered encryption
+   - Transposition followed by substitution
+   - Or high key-length Vigenère
+
+If this were a pure transposition cipher, we would expect frequencies to closely match English.
+
+However, the distortion suggests letters may have been shifted before rearrangement.
+
+---
+
+### 📈 Frequency Characteristics
+
+
+Compared to standard English:
+
+- Expected most frequent letters: E, T, A
+- Observed peaks: D, N, W
+
+This mismatch weakens the monoalphabetic substitution hypothesis.
+
+The moderate flattening and irregular peaks support a polyalphabetic mechanism.
+
+---
+
+### 🔍 Cryptanalytic Implication
+
+Because:
+
+- English frequency signature is partially distorted
+- But not completely flattened
+- And IC was inconclusive
+
+Challenge 2 may involve:
+
+- Long-key Vigenère
+- Autokey variant
+- Beaufort cipher
+- Double encryption (Substitution + Transposition)
+
+This statistical ambiguity contributed to the difficulty of full decryption.
+
+---
+
+## 📈 Index of Coincidence (IC)
+
+The Index of Coincidence was calculated.
+
+Observed IC:
+
+- Closer to random (~0.038–0.042)
+- Lower than natural English (~0.065)
+
+Interpretation:
+
+- Not monoalphabetic substitution
+- Possibly Vigenère or another polyalphabetic cipher
+- Possibly double-encrypted
+
+---
+
+## 🔍 Hypothesis 1 – Vigenère Cipher
+
+### Key Length Testing
+
+IC was computed across multiple candidate key lengths.
+
+Results did not show a strong or stable spike.
+
+Several lengths showed minor fluctuations, but none approached English-level IC (~0.065).
+
+Conclusion:
+
+Vigenère hypothesis was weak.
+
+---
+
+## 🔍 Hypothesis 2 – Caesar / Shift Cipher
+
+All 26 shifts were tested.
+
+Results:
+
+- No readable English output
+- No partial coherent phrases
+
+Conclusion:
+
+Not a simple shift cipher.
+
+---
+
+## 🔍 Hypothesis 3 – Substitution Cipher
+
+Frequency alignment was compared with standard English.
+
+Findings:
+
+- No strong single-letter mapping candidate
+- Distribution inconsistent with monoalphabetic substitution
+
+Conclusion:
+
+Unlikely pure substitution.
+
+---
+
+## 🔍 Hypothesis 4 – Columnar Transposition
+
+Permutation testing performed for multiple column sizes.
+
+Results:
+
+- Some partial patterns observed
+- No globally coherent plaintext produced
+- No consistent word reconstruction
+
+Conclusion:
+
+If transposition-based, likely multi-layered or double-applied.
+
+---
+
+## 🔍 Hypothesis 5 – Hill Cipher
+
+Digraph analysis performed.
+
+Findings:
+
+- No consistent 2-letter transformation behavior
+- Matrix brute-force did not produce structured English
+
+Conclusion:
+
+Not Hill 2×2.
+
+---
+
+## 🧠 Suspected Cipher Type
+
+Based on statistical evidence, the cipher may be:
+
+- Multi-layered encryption (e.g., Vigenère + Transposition)
+- Double columnar transposition
+- Autokey Vigenère
+- Beaufort variant
+- Or a higher key-length polyalphabetic cipher
+
+The absence of strong IC spikes suggests either:
+
+- Very long key
+- Or non-standard classical cipher
+
+---
+
+## ⚠ Challenges Encountered
+
+- No strong IC key length signal
+- No decisive statistical fingerprint
+- Large permutation search space
+- High false positive rate in brute-force attempts
+- Ambiguous intermediate outputs
+
+The cipher did not provide a clear classification signature.
+
+---
+
+## ⏱ Time Investment
+
+~6–10 hours of structured analysis:
+
+- Frequency analysis
+- IC computation
+- Key length testing
+- Shift testing
+- Permutation trials
+- Cipher elimination workflow
+
+---
+
+## 🎓 Lessons Learned
+
+- Not all ciphers reveal clear statistical fingerprints
+- IC is powerful but not definitive
+- Cipher layering dramatically increases complexity
+- Failure documentation is critical in cryptanalysis
+- Hypothesis elimination is as important as successful decryption
+
+This challenge reinforced the importance of structured investigation and analytical rigor in cryptographic problem-solving.
+
+---
+
+## 📌 Final Status
+
+❌ Cipher not fully decrypted  
+✔ Extensive investigation documented  
+✔ Multiple cipher types eliminated  
+✔ Statistical reasoning applied  
+
+Further investigation may require:
+
+- Deeper pattern analysis
+- Bigram/trigram scoring
+- Simulated annealing approaches
+- Advanced heuristic search
+- Machine learning-assisted scoring
+
+---
+
+### 👨‍💻 Author
 
 Farai Denhere  
-
+MS Cybersecurity – University of Delaware  
