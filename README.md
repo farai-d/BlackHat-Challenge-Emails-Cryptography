@@ -1,90 +1,164 @@
+# 🔐 Challenge 4 – Ongoing Cryptanalysis Investigation
 
-Each challenge folder contains:
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Status](https://img.shields.io/badge/Status-In%20Progress-orange)
+![Focus](https://img.shields.io/badge/Focus-Statistical%20Cryptanalysis-red)
 
-- `ciphertext.txt`
-- `decrypted.txt`
-- `solver.py`
-- `analysis.md`
-- Supporting scripts (frequency, IC, scoring, brute-force)
-
----
-
-## 🧠 Cryptographic Methods Investigated
-
-Throughout the project, the following cipher types were tested:
-
-- Hill Cipher (2x2 matrix mod 26)
-- Vigenère Cipher
-- Columnar Transposition
-- Double Columnar Transposition
-- Brute-force permutation search
-- Frequency Analysis
-- Index of Coincidence (IC)
-- English scoring heuristics
-- Key space reduction via mathematical constraints
-
-Each cipher was either:
-- Successfully decrypted, or
-- Systematically ruled out using statistical evidence
+**BlackHat Challenge Series – CPEG 667**  
+Farai Denhere – MS Cybersecurity  
 
 ---
 
-## 🔍 Methodology
+## 📌 Executive Summary
 
-My approach followed a structured cryptanalytic workflow:
+Challenge 4 remains an unresolved ciphertext despite structured statistical analysis, cipher classification attempts, and multiple brute-force strategies.
 
-1. Initial statistical analysis (letter frequency, IC)
-2. Cipher-type hypothesis testing
-3. Key length estimation (when applicable)
-4. Brute-force or constrained key search
-5. English scoring validation
-6. Mathematical proof of correctness
-7. Plaintext verification
+Extensive investigative efforts were conducted, and several cipher families were systematically tested and eliminated.  
+The cipher does not clearly match standard classical encryption fingerprints.
 
-All brute-force operations were optimized by reducing the key space using cipher-specific constraints (e.g., determinant invertibility for Hill cipher).
+This document outlines the full analytical workflow and current findings.
 
 ---
 
-## 🛠 Tools & Technologies Used
+## 📊 Letter Frequency Analysis
 
-- Python 3
-- NumPy (matrix operations)
-- Custom English frequency scoring functions
-- Modular arithmetic operations (mod 26)
-- Permutation generation (itertools)
-- Automated plaintext scoring
+<img width="899" height="736" alt="image" src="https://github.com/user-attachments/assets/81ed779c-ea3e-40fc-b1eb-c7a001bd4627" />
 
-All scripts were written from scratch specifically for this project.
 
----
+### 🔎 Observations
 
-## 📊 Key Learning Outcomes
+From the frequency graph:
 
-- Understanding practical key space explosion
-- Importance of mathematical constraints in cryptanalysis
-- Detecting false positives in brute-force results
-- Implementing automated English scoring
-- Applying modular inverse calculations correctly
-- Recognizing cipher fingerprints through IC and frequency patterns
+- Letter **F** appears extremely dominant.
+- Letters **N** and **Y** are also unusually high.
+- Expected high-frequency English letters (E, T, A) are not dominant.
+- Some letters (I, J, K) are extremely rare.
 
-This project strengthened both my offensive security mindset and my mathematical cryptography foundation.
+This distribution is inconsistent with standard English and suggests transformation beyond simple transposition.
 
 ---
 
-## 🚀 Professional Relevance
+## 📈 Index of Coincidence (IC)
 
-This repository demonstrates:
+IC was calculated to classify the cipher type.
 
-- Applied cryptanalysis
-- Automated brute-force tooling
-- Statistical validation techniques
-- Secure coding practices
-- Structured investigative methodology
+Findings:
 
+- IC does not strongly match English (~0.065)
+- IC is not fully random (~0.038)
+- Value lies in an ambiguous range
+
+Interpretation:
+
+- Not clearly monoalphabetic
+- Not clearly polyalphabetic
+- Possibly layered encryption
+
+The ambiguous IC value complicates classification.
 
 ---
 
-## 📌 Author
+## 🔍 Hypotheses Tested
+
+### 1️⃣ Caesar / Shift Cipher
+- All 26 shifts tested.
+- No coherent English output recovered.
+
+Result: Eliminated.
+
+---
+
+### 2️⃣ Monoalphabetic Substitution
+- Frequency mapping attempted.
+- Dominant F did not align consistently to E.
+- No stable substitution pattern emerged.
+
+Result: Weak candidate.
+
+---
+
+### 3️⃣ Vigenère Cipher
+- Key length testing performed.
+- No decisive IC spike detected.
+- Column analysis inconsistent.
+
+Result: Inconclusive.
+
+---
+
+### 4️⃣ Hill Cipher (2×2)
+- Digraph structure examined.
+- Brute-force matrix testing did not produce readable output.
+
+Result: Eliminated.
+
+---
+
+### 5️⃣ Columnar Transposition
+- Multiple column sizes tested.
+- Permutation testing yielded no globally coherent plaintext.
+
+Result: Unlikely single-stage transposition.
+
+---
+
+## 🧠 Current Working Theories
+
+Based on analysis, the cipher may involve:
+
+- Multi-layer encryption (e.g., substitution + transposition)
+- Autokey Vigenère
+- Beaufort variant
+- Long-key polyalphabetic cipher
+- Double transposition
+- Non-standard classical scheme
+
+The unusually high frequency of F suggests a consistent transformation mapping rather than random distribution.
+
+---
+
+## ⚠ Analytical Challenges
+
+- No decisive statistical fingerprint
+- Ambiguous IC results
+- No reliable key length detection
+- Large combinatorial search space
+- False positives during heuristic scoring
+
+The cipher resists straightforward classification.
+
+---
+
+## 🔬 Planned Future Work
+
+- Bigram/trigram frequency scoring
+- Simulated annealing substitution solver
+- Genetic algorithm search
+- Deeper structural pattern detection
+- Layered cipher modeling
+
+---
+
+## 📌 Current Status
+
+⚠ Cipher not yet decrypted  
+✔ Statistical analysis completed  
+✔ Major cipher families tested  
+✔ Investigation ongoing  
+
+---
+
+## 🎓 Key Lessons from Challenge 4
+
+- Not all ciphers present clear statistical signatures.
+- IC alone is insufficient for complex encryption.
+- Layered encryption significantly increases difficulty.
+- Systematic elimination is as important as successful decryption.
+- Cryptanalysis often involves unresolved cases.
+
+---
+
+### 👨‍💻 Author
 
 Farai Denhere  
-
+MS Cybersecurity – University of Delaware  
