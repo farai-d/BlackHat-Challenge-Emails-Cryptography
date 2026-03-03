@@ -1,90 +1,153 @@
+# 🔐 Challenge 3 – Vigenère Cipher Cryptanalysis
 
-Each challenge folder contains:
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Cipher Type](https://img.shields.io/badge/Cipher-Vigen%C3%A8re-orange)
+![Status](https://img.shields.io/badge/Status-Solved-brightgreen)
 
-- `ciphertext.txt`
-- `decrypted.txt`
-- `solver.py`
-- `analysis.md`
-- Supporting scripts (frequency, IC, scoring, brute-force)
-
----
-
-## 🧠 Cryptographic Methods Investigated
-
-Throughout the project, the following cipher types were tested:
-
-- Hill Cipher (2x2 matrix mod 26)
-- Vigenère Cipher
-- Columnar Transposition
-- Double Columnar Transposition
-- Brute-force permutation search
-- Frequency Analysis
-- Index of Coincidence (IC)
-- English scoring heuristics
-- Key space reduction via mathematical constraints
-
-Each cipher was either:
-- Successfully decrypted, or
-- Systematically ruled out using statistical evidence
+**BlackHat Challenge Series**  
+Farai Denhere – MS Cybersecurity  
 
 ---
 
-## 🔍 Methodology
+## 📌 Executive Summary
 
-My approach followed a structured cryptanalytic workflow:
+Challenge 3 involved decrypting a long ciphertext suspected to be encrypted using a polyalphabetic cipher.
 
-1. Initial statistical analysis (letter frequency, IC)
-2. Cipher-type hypothesis testing
-3. Key length estimation (when applicable)
-4. Brute-force or constrained key search
-5. English scoring validation
-6. Mathematical proof of correctness
-7. Plaintext verification
+Using Index of Coincidence (IC) analysis and frequency-based shift recovery, the cipher was identified as a **Vigenère cipher** with key length 17.
 
-All brute-force operations were optimized by reducing the key space using cipher-specific constraints (e.g., determinant invertibility for Hill cipher).
+The correct shift values were recovered and the plaintext successfully restored.
 
 ---
 
-## 🛠 Tools & Technologies Used
+## 🔎 Initial Observations
 
-- Python 3
-- NumPy (matrix operations)
-- Custom English frequency scoring functions
-- Modular arithmetic operations (mod 26)
-- Permutation generation (itertools)
-- Automated plaintext scoring
+- Ciphertext length: Large
+- All uppercase letters
+- No punctuation or spacing
+- Frequency distribution flattened
+- No clear digraph structure (unlike Hill)
 
-All scripts were written from scratch specifically for this project.
-
----
-
-## 📊 Key Learning Outcomes
-
-- Understanding practical key space explosion
-- Importance of mathematical constraints in cryptanalysis
-- Detecting false positives in brute-force results
-- Implementing automated English scoring
-- Applying modular inverse calculations correctly
-- Recognizing cipher fingerprints through IC and frequency patterns
-
-This project strengthened both my offensive security mindset and my mathematical cryptography foundation.
+The flattened distribution suggested a polyalphabetic cipher.
 
 ---
 
-## 🚀 Professional Relevance
+## 📊 Key Length Detection (Index of Coincidence)
 
-This repository demonstrates:
+To determine the key length, the average IC was computed for candidate key lengths from 10 to 20.
 
-- Applied cryptanalysis
-- Automated brute-force tooling
-- Statistical validation techniques
-- Secure coding practices
-- Structured investigative methodology
+Results:
+Length 10: avg IC = 0.0366
+Length 11: avg IC = 0.0353
+Length 12: avg IC = 0.0362
+Length 13: avg IC = 0.0341
+Length 14: avg IC = 0.0368
+Length 15: avg IC = 0.0369
+Length 16: avg IC = 0.0401
+Length 17: avg IC = 0.0627 ← Strong spike
+Length 18: avg IC = 0.0375
+Length 19: avg IC = 0.0368
+Length 20: avg IC = 0.0364
 
+
+### 🔥 Critical Breakthrough
+
+Key length **17** produced an IC near standard English (~0.065).
+
+This indicates:
+
+- Each column (when split by 17) behaves like monoalphabetic substitution
+- Strong evidence of Vigenère cipher
 
 ---
 
-## 📌 Author
+## 🛠 Column Separation Strategy
+
+Once key length = 17 was determined:
+
+1. Ciphertext was split into 17 columns
+2. Each column treated as independent Caesar shift
+3. Frequency analysis applied to each column
+4. Best shift selected using English scoring
+
+Recovered shift array (example):
+
+[15, 13, 15, 16, 20, 13, 16, 5, 8, ...]
+
+
+Each value represents a Caesar shift for that column.
+
+---
+
+## 🔐 Key Recovery
+
+The shift array was converted into the Vigenère key.
+
+Each shift value corresponds to a letter:
+
+Shift 0 → A
+Shift 1 → B
+Shift 2 → C
+...
+Shift 15 → P
+
+
+The full 17-character key was reconstructed and validated by decrypting the full ciphertext.
+
+---
+
+## 🧠 Why This Was Vigenère
+
+Indicators:
+
+- Flattened global frequency distribution  
+- High IC spike at correct key length  
+- Each separated column resembled monoalphabetic substitution  
+- Decryption produced coherent English  
+
+This is textbook Vigenère behavior.
+
+---
+
+## 📜 Decrypted Plaintext
+
+➡️ **[View Full Decrypted Message](./decrypted.txt)**
+
+(Full plaintext available in repository)
+
+---
+
+## ⚠ Challenges Encountered
+
+- Multiple candidate key lengths before IC spike  
+- Noise in IC values  
+- False positives during shift scoring  
+- Ensuring full-text validation rather than fragment acceptance  
+
+The IC spike at 17 was the turning point.
+
+---
+
+## 🎓 Key Lessons Learned
+
+- Index of Coincidence is powerful for key length detection  
+- Polyalphabetic ciphers flatten global frequency  
+- Breaking Vigenère reduces to multiple Caesar shifts  
+- Column independence simplifies complex ciphers  
+
+This challenge strengthened my understanding of statistical cryptanalysis and automated key recovery.
+
+---
+
+## ✅ Final Conclusion
+
+✔ Cipher Identified: Vigenère  
+✔ Key Length Determined: 17  
+✔ Key Successfully Recovered  
+✔ Plaintext Fully Restored  
+
+---
+
+### 👨‍💻 Author
 
 Farai Denhere  
-
+MS Cybersecurity – University of Delaware  
