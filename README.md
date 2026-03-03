@@ -1,4 +1,14 @@
+---
 
+## 🔗 Quick Navigation – BlackHat Challenges
+
+- 🔐 [Challenge 1 – Hill Cipher (2×2)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge1)
+- 🔑 [Challenge 2 – Unresolved Investigation](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge2)
+- 🔎 [Challenge 3 – Vigenère Cipher](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge3)
+- 🧠 [Challenge 4 – Ongoing Investigation](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge4)
+- 🧮 [Challenge 5 – Double Columnar Transposition](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge5)
+
+---
 ## 📁 Challenge Structure & Current Progress
 
 Each challenge folder contains:
