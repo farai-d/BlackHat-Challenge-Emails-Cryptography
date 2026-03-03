@@ -8,10 +8,16 @@
 Farai Denhere – MS Cybersecurity  
 
 ---
+## 🚀 BlackHat Challenge Navigation
 
-⬅️ **[Back to Main Repository](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)**
 
 [![Back to Main](https://img.shields.io/badge/Back%20to-Main%20Repository-blue)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)
+[![Challenge 1](https://img.shields.io/badge/Challenge%201-Hill%20Cipher-blue)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge1)
+[![Challenge 2](https://img.shields.io/badge/Challenge%202-Unresolved-orange)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge2)
+[![Challenge 3](https://img.shields.io/badge/Challenge%203-Vigen%C3%A8re-green)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge3)
+[![Challenge 4](https://img.shields.io/badge/Challenge%204-In%20Progress-yellow)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge4)
+[![Challenge 5](https://img.shields.io/badge/Challenge%205-Double%20Columnar-red)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge5)
+
 
 ---
 
