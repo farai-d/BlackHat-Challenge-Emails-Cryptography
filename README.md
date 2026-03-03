@@ -4,7 +4,7 @@
 ![Cipher Type](https://img.shields.io/badge/Cipher-Double%20Columnar-red)
 ![Status](https://img.shields.io/badge/Status-Solved-brightgreen)
 
-**BlackHat Challenge Series – CPEG 667**  
+**BlackHat Challenge Series**  
 Farai Denhere – MS Cybersecurity  
 
 ---
