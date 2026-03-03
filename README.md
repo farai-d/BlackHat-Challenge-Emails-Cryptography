@@ -4,8 +4,14 @@
 ![Status](https://img.shields.io/badge/Status-In%20Progress-orange)
 ![Focus](https://img.shields.io/badge/Focus-Statistical%20Cryptanalysis-red)
 
-**BlackHat Challenge Series – CPEG 667**  
+**BlackHat Challenge Series**  
 Farai Denhere – MS Cybersecurity  
+
+---
+
+⬅️ **[Back to Main Repository](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)**
+
+[![Back to Main](https://img.shields.io/badge/Back%20to-Main%20Repository-blue)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)
 
 ---
 
