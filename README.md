@@ -31,6 +31,30 @@ The flattened distribution suggested a polyalphabetic cipher.
 
 ---
 
+## 📊 Letter Frequency Analysis
+
+Before key recovery, global letter frequency of the ciphertext was computed.
+
+### 🔢 Ciphertext Letter Distribution
+
+<img width="899" height="742" alt="image" src="https://github.com/user-attachments/assets/ab950b27-2d13-4101-a11a-8b4937ecdabe" />
+
+
+---
+
+### 🔎 Interpretation
+
+- Distribution appeared flattened compared to standard English.
+- No single dominant letter such as “E”.
+- Frequencies did not strongly align with monoalphabetic substitution patterns.
+
+This flattening is characteristic of **polyalphabetic encryption**, where multiple Caesar shifts distribute frequency across the alphabet.
+
+This supported the hypothesis of a Vigenère cipher.
+
+
+---
+
 ## 📊 Key Length Detection (Index of Coincidence)
 
 To determine the key length, the average IC was computed for candidate key lengths from 10 to 20.
@@ -48,6 +72,47 @@ Length 18: avg IC = 0.0375
 Length 19: avg IC = 0.0368
 Length 20: avg IC = 0.0364
 
+<img width="1305" height="382" alt="image" src="https://github.com/user-attachments/assets/961222cf-0286-4e5f-9d41-46c6b0bc5dbb" />
+
+---
+
+## 🔍 Kasiski Examination
+
+To further validate the Vigenère hypothesis, repeated sequences within the ciphertext were examined.
+
+### Method
+
+1. Search for repeated trigrams and longer substrings.
+2. Measure the spacing between repeated occurrences.
+3. Compute the greatest common divisors (GCD) of those spacings.
+4. Candidate key lengths are likely divisors of those distances.
+
+---
+
+### Observations
+
+- Several repeated sequences were detected.
+- Distances between repeats showed common factors.
+- Factor analysis suggested possible key lengths including: 17
+
+This aligned perfectly with the Index of Coincidence spike at key length 17.
+
+---
+
+### Conclusion from Kasiski
+
+The agreement between:
+
+- IC spike at 17
+- Kasiski distance factors including 17
+
+Provided strong independent confirmation that:
+
+> The cipher key length was 17.
+
+This dual-method confirmation significantly increased confidence before proceeding to shift recovery.
+
+---
 
 ### 🔥 Critical Breakthrough
 
@@ -72,6 +137,8 @@ Once key length = 17 was determined:
 Recovered shift array (example):
 
 [15, 13, 15, 16, 20, 13, 16, 5, 8, ...]
+
+<img width="1316" height="135" alt="image" src="https://github.com/user-attachments/assets/988a3f14-a299-47cf-8013-ecc588d64a9b" />
 
 
 Each value represents a Caesar shift for that column.
@@ -104,7 +171,7 @@ Indicators:
 - Each separated column resembled monoalphabetic substitution  
 - Decryption produced coherent English  
 
-This is textbook Vigenère behavior.
+This is commonly Vigenère behavior.
 
 ---
 
