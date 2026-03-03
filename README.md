@@ -223,18 +223,6 @@ The absence of strong IC spikes suggests either:
 
 The cipher did not provide a clear classification signature.
 
----
-
-## ⏱ Time Investment
-
-~6–10 hours of structured analysis:
-
-- Frequency analysis
-- IC computation
-- Key length testing
-- Shift testing
-- Permutation trials
-- Cipher elimination workflow
 
 ---
 
