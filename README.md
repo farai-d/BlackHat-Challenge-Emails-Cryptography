@@ -4,7 +4,7 @@ Each challenge folder contains:
 - `ciphertext.txt`
 - `decrypted.txt`
 - `solver.py`
-- `analysis.md`
+- `README.md`
 - Supporting scripts (frequency, IC, scoring, brute-force)
 
 ---
