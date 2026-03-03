@@ -5,7 +5,7 @@
 ![Cipher Type](https://img.shields.io/badge/Cipher-Hill%202x2-green)
 ![Status](https://img.shields.io/badge/Status-Solved-brightgreen)
 
-**BlackHat Challenge Series – CPEG 667**  
+**BlackHat Challenge Series**  
 Farai Denhere – MS Cybersecurity  
 
 ---
