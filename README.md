@@ -5,6 +5,13 @@
 ![Cipher Type](https://img.shields.io/badge/Cipher-Hill%202x2-green)
 ![Status](https://img.shields.io/badge/Status-Solved-brightgreen)
 
+---
+
+⬅️ **[Back to Main Repository](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)**
+
+[![Back to Main](https://img.shields.io/badge/Back%20to-Main%20Repository-blue)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography)
+
+---
 **BlackHat Challenge Series**  
 Farai Denhere – MS Cybersecurity  
 
