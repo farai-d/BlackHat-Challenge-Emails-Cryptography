@@ -7,7 +7,6 @@
 [![Challenge 4](https://img.shields.io/badge/Challenge%204-In%20Progress-yellow)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge4)
 [![Challenge 5](https://img.shields.io/badge/Challenge%205-Double%20Columnar-red)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge5)
 
-## 🔗 Quick Navigation – BlackHat Challenges
 
 - 🔐 [Challenge 1 – Hill Cipher (2×2)](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge1)
 - 🔑 [Challenge 2 – Unresolved Investigation](https://github.com/farai-d/BlackHat-Challenge-Emails-Cryptography/tree/BlackHat-Challenge2)
